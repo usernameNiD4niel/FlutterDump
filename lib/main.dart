@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home_page.dart';
+import 'package:flutter_app/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,13 +28,15 @@ class Rootpage extends StatefulWidget {
 
 class _RootpageState extends State<Rootpage> {
   int currentPage = 0;
+  List<Widget> pages = const [HomePage(), ProfilePage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter Application"),
       ),
-      body: const HomePage(),
+      body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint("Button pressed");
